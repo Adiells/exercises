@@ -41,6 +41,7 @@ function gatherCorrelations(journal){
     return phis
 }
 
+
 var JOURNAL = [
     {"events":["carrot","exercise","weekend"],"squirrel":false},
     {"events":["bread","pudding","brushed teeth","weekend","touched tree"],"squirrel":false},
@@ -143,7 +144,14 @@ var JOURNAL = [
 const tablee = (tableFor('pizza', JOURNAL))
 //console.log(tablee)
 //console.log(phi(tablee))
-
+function addEntry(squirrel){
+    let entry = {events: [], squirrel: squirrel}
+    for (let i = 1; i < arguments.length; i++){
+        entry.events.push(arguments[i])
+    }
+    JOURNAL.push(entry)
+}
+addEntry(true, 'work', 'touched tree', 'pizza', 'running', 'television')
 let correlations = gatherCorrelations(JOURNAL)
 for(let event in correlations){
     let correlation = correlations[event]
