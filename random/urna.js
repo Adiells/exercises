@@ -41,6 +41,3 @@ let urnaEletronica = {
 }
 console.log('Registre seu voto em um dos candidatos a seguir')
 console.log(urnaEletronica.candidatos.join(' -- '),'\n')
-urnaEletronica.registrarVoto('Ze bofada')
-urnaEletronica.registrarVoto('Lagarticha')
-urnaEletronica.mostrarResultado()
