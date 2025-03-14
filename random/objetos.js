@@ -29,8 +29,8 @@ function tableFor(event, journal){
 
 function gatherCorrelations(journal){
     let phis = {}
-    journal.forEach(function(entry){
-        entry.events.forEach(function(event){
+    journal.forEach(entry => {
+        entry.events.forEach(event => {
             if(!(event in phis)){
                 phis[event] = phi(tableFor(event, journal))
             }
