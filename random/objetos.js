@@ -29,15 +29,13 @@ function tableFor(event, journal){
 
 function gatherCorrelations(journal){
     let phis = {}
-    for (let entry = 0; entry < journal.length; entry++){
-        let events = journal[entry].events;
-        for (let i = 0; i < events.length; i++){
-            let event = events[i]
-            if(!events in phis){
+    journal.forEach(function(entry){
+        entry.events.forEach(function(event){
+            if(!(event in phis)){
                 phis[event] = phi(tableFor(event, journal))
             }
-        }
-    }
+        })
+    })
     return phis
 }
 
@@ -151,7 +149,7 @@ function addEntry(squirrel){
     }
     JOURNAL.push(entry)
 }
-addEntry(true, 'work', 'touched tree', 'pizza', 'running', 'television')
+addEntry(false, 'work', 'touched tree', 'pizza', 'running', 'television')
 let correlations = gatherCorrelations(JOURNAL)
 for(let event in correlations){
     let correlation = correlations[event]
@@ -165,4 +163,4 @@ for(let i = 0; i < JOURNAL.length; i++){
         entry.events.push('teste')
     }
 }
-console.log(phi(tableFor('teste', JOURNAL)))
+console.log(gatherCorrelations(JOURNAL))
