@@ -92,3 +92,13 @@ function shareDNA(person, fromMother, fromFather){
 }
 let ph = byName['Philibert Haverbeke']
 console.log(reduceAncestors(ph, shareDNA, 0))
+
+let theSet = ['Carel Haverbeke', 'Maria van Brussel', 'Donald Duck']
+function isInSet(set, person){ 
+  return set.indexOf(person.name) > -1
+}
+console.log(ancestry.filter(person =>{
+  return isInSet(theSet, person)
+}))
+
+console.log(ancestry.filter(isInSet.bind(null, theSet)))
