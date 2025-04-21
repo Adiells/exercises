@@ -4,13 +4,13 @@ function average(array){
 }
 function seculo(array){
     let seculos = {}
-    for(let i in array){
-        let seculo = Math.ceil(array[i].died / 100)
+    array.forEach(element => {
+        let seculo = Math.ceil(element.died / 100)
         if(!seculos[seculo]){
             seculos[seculo] = []
         }
-        seculos[seculo].push(array[i].died - array[i].born)
-    }
+        seculos[seculo].push(element.died - element.born)
+    });
     return seculos
 }
 let seculos = seculo(dados)
